@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Meme Caption Generator</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main class="container">
+<p class="eyebrow">PYTHON + MACHINE LEARNING DEMO</p><h1>Meme Caption Generator</h1>
+<p>Enter a topic or situation to get matching caption ideas.</p>
+<form method="post"><label for="topic">Topic or situation</label><input id="topic" name="topic" value="{{ query }}" placeholder="e.g. exams, coding, friends" required><button type="submit">Generate captions</button></form>
+{% if results %}<h2>Caption ideas</h2><div class="cards">{% for item in results %}<article class="card"><span class="tag">{{ item.topic }}</span><p>{{ item.text }}</p></article>{% endfor %}</div>{% endif %}
+<footer>Educational demo · Caption suggestions only</footer></main></body></html>
